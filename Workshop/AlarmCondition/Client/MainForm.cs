@@ -65,6 +65,8 @@ namespace Quickstarts.AlarmConditionClient
             var appSettings = System.Configuration.ConfigurationManager.AppSettings;
             Boolean.TryParse(appSettings["ColumnAutoAdjust"], out this.ColumnAutoAdjust);
             ServerURL = appSettings["ServerURL"];
+            Int32.TryParse(appSettings["MaximumItems"], out MaximumItems);
+            if (MaximumItems < MIN_ITEMS) { MaximumItems = MIN_ITEMS; }
 
             this.Icon = ClientUtils.GetAppIcon();
 
@@ -120,6 +122,9 @@ namespace Quickstarts.AlarmConditionClient
         private bool m_connectedOnce;
         private bool ColumnAutoAdjust;
         private string ServerURL;
+        private int MaximumItems;
+
+        private const int MIN_ITEMS = 100;
         #endregion
 
         #region Private Methods
@@ -779,6 +784,11 @@ namespace Quickstarts.AlarmConditionClient
 
                 //TODO: Add this as a menu option
                 ConditionsLV.EnsureVisible(ConditionsLV.Items.Count -1);
+
+                while (ConditionsLV.Items.Count > MaximumItems)
+                {
+                    ConditionsLV.Items.RemoveAt(0);
+                }
             }
             catch (Exception exception)
             {
