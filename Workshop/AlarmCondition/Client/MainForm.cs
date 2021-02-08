@@ -776,6 +776,9 @@ namespace Quickstarts.AlarmConditionClient
                         ConditionsLV.Columns[ii].Width = -2;
                     }
                 }
+
+                //TODO: Add this as a menu option
+                ConditionsLV.EnsureVisible(ConditionsLV.Items.Count -1);
             }
             catch (Exception exception)
             {
