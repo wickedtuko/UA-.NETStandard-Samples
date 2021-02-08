@@ -64,11 +64,19 @@ namespace Quickstarts.AlarmConditionClient
             InitializeComponent();
             var appSettings = System.Configuration.ConfigurationManager.AppSettings;
             Boolean.TryParse(appSettings["ColumnAutoAdjust"], out this.ColumnAutoAdjust);
+            ServerURL = appSettings["ServerURL"];
 
             this.Icon = ClientUtils.GetAppIcon();
 
             ConnectServerCTRL.Configuration = m_configuration = configuration;
-            ConnectServerCTRL.ServerUrl = "opc.tcp://localhost:62544/Quickstarts/AlarmConditionServer";
+            if(ServerURL.Length > 0)
+            {
+                ConnectServerCTRL.ServerUrl = ServerURL;
+            } else
+            {
+                ConnectServerCTRL.ServerUrl = "opc.tcp://localhost:62544/Quickstarts/AlarmConditionServer";
+            }
+            
             this.Text = m_configuration.ApplicationName;
 
             // a table used to track event types.
