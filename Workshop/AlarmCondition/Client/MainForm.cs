@@ -645,23 +645,23 @@ namespace Quickstarts.AlarmConditionClient
                 // look for existing entry.
                 ListViewItem item = null;
 
-                for (int ii = 0; ii < ConditionsLV.Items.Count; ii++)
-                {
-                    ConditionState current = (ConditionState)ConditionsLV.Items[ii].Tag;
+                //for (int ii = 0; ii < ConditionsLV.Items.Count; ii++)
+                //{
+                //    ConditionState current = (ConditionState)ConditionsLV.Items[ii].Tag;
 
-                    // the combination of a condition and branch id uniquely identify an item in the display. 
-                    if (current.NodeId == condition.NodeId && BaseVariableState.GetValue(current.BranchId) == BaseVariableState.GetValue(condition.BranchId))
-                    {
-                        // match found but watch out for out of order events (async processing can cause this to happen).
-                        if (BaseVariableState.GetValue(current.Time) > BaseVariableState.GetValue(condition.Time))
-                        {
-                            return;
-                        }
+                //    // the combination of a condition and branch id uniquely identify an item in the display. 
+                //    if (current.NodeId == condition.NodeId && BaseVariableState.GetValue(current.BranchId) == BaseVariableState.GetValue(condition.BranchId))
+                //    {
+                //        // match found but watch out for out of order events (async processing can cause this to happen).
+                //        if (BaseVariableState.GetValue(current.Time) > BaseVariableState.GetValue(condition.Time))
+                //        {
+                //            return;
+                //        }
 
-                        item = ConditionsLV.Items[ii];
-                        break;
-                    }
-                }
+                //        item = ConditionsLV.Items[ii];
+                //        break;
+                //    }
+                //}
                 
                 // create a new entry.
                 if (item == null)
