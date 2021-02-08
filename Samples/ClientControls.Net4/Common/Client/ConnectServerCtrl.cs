@@ -545,6 +545,7 @@ namespace Opc.Ua.Client.Controls
                 }
 
                 m_ConnectComplete(this, null);
+                ConnectBTN.Enabled = false;
             }
         }
 

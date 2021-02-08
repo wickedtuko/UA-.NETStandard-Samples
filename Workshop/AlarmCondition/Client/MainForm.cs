@@ -154,6 +154,8 @@ namespace Quickstarts.AlarmConditionClient
             try
             {
                 ConnectServerCTRL.Disconnect();
+                Server_ConnectMI.Enabled = true;
+                Server_DisconnectMI.Enabled = false;
             }
             catch (Exception exception)
             {
@@ -193,7 +195,6 @@ namespace Quickstarts.AlarmConditionClient
                         m_auditEventForm.Close();
                         m_auditEventForm = null;
                     }
-
                     return;
                 }
 
@@ -240,6 +241,10 @@ namespace Quickstarts.AlarmConditionClient
 
                 ConditionsMI.Enabled = true;
                 ViewMI.Enabled = true;
+
+                Server_ConnectMI.Enabled = false;
+                Server_DisconnectMI.Enabled = true;
+
             }
             catch (Exception exception)
             {
