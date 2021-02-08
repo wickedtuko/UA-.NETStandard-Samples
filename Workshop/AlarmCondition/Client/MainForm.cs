@@ -642,43 +642,19 @@ namespace Quickstarts.AlarmConditionClient
                     return;
                 }
 
-                // look for existing entry.
                 ListViewItem item = null;
+                item = new ListViewItem(String.Empty);
 
-                //for (int ii = 0; ii < ConditionsLV.Items.Count; ii++)
-                //{
-                //    ConditionState current = (ConditionState)ConditionsLV.Items[ii].Tag;
+                item.SubItems.Add(String.Empty); // Condition
+                item.SubItems.Add(String.Empty); // Branch
+                item.SubItems.Add(String.Empty); // Type
+                item.SubItems.Add(String.Empty); // Severity
+                item.SubItems.Add(String.Empty); // Time
+                item.SubItems.Add(String.Empty); // State
+                item.SubItems.Add(String.Empty); // Message
+                item.SubItems.Add(String.Empty); // Comment
 
-                //    // the combination of a condition and branch id uniquely identify an item in the display. 
-                //    if (current.NodeId == condition.NodeId && BaseVariableState.GetValue(current.BranchId) == BaseVariableState.GetValue(condition.BranchId))
-                //    {
-                //        // match found but watch out for out of order events (async processing can cause this to happen).
-                //        if (BaseVariableState.GetValue(current.Time) > BaseVariableState.GetValue(condition.Time))
-                //        {
-                //            return;
-                //        }
-
-                //        item = ConditionsLV.Items[ii];
-                //        break;
-                //    }
-                //}
-                
-                // create a new entry.
-                if (item == null)
-                {
-                    item = new ListViewItem(String.Empty);
-
-                    item.SubItems.Add(String.Empty); // Condition
-                    item.SubItems.Add(String.Empty); // Branch
-                    item.SubItems.Add(String.Empty); // Type
-                    item.SubItems.Add(String.Empty); // Severity
-                    item.SubItems.Add(String.Empty); // Time
-                    item.SubItems.Add(String.Empty); // State
-                    item.SubItems.Add(String.Empty); // Message
-                    item.SubItems.Add(String.Empty); // Comment
-
-                    ConditionsLV.Items.Add(item);
-                }
+                ConditionsLV.Items.Add(item);
 
                 // look up the condition type metadata in the local cache.
                 INode type = m_session.NodeCache.Find(condition.TypeDefinitionId);
