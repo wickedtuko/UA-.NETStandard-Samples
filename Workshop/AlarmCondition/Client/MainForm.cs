@@ -62,10 +62,21 @@ namespace Quickstarts.AlarmConditionClient
         public MainForm(ApplicationConfiguration configuration)
         {
             InitializeComponent();
+            var appSettings = System.Configuration.ConfigurationManager.AppSettings;
+            Boolean.TryParse(appSettings["ColumnAutoAdjust"], out this.ColumnAutoAdjust);
+            ServerURL = appSettings["ServerURL"];
+
             this.Icon = ClientUtils.GetAppIcon();
 
             ConnectServerCTRL.Configuration = m_configuration = configuration;
-            ConnectServerCTRL.ServerUrl = "opc.tcp://localhost:62544/Quickstarts/AlarmConditionServer";
+            if(ServerURL.Length > 0)
+            {
+                ConnectServerCTRL.ServerUrl = ServerURL;
+            } else
+            {
+                ConnectServerCTRL.ServerUrl = "opc.tcp://localhost:62544/Quickstarts/AlarmConditionServer";
+            }
+            
             this.Text = m_configuration.ApplicationName;
 
             // a table used to track event types.
@@ -79,7 +90,7 @@ namespace Quickstarts.AlarmConditionClient
             m_filter.IgnoreSuppressedOrShelved = true;
             m_filter.EventTypes = new NodeId[] { ObjectTypeIds.ConditionType };
 
-            // declate callback.
+            // declare callback.
             m_MonitoredItem_Notification = new MonitoredItemNotificationEventHandler(MonitoredItem_Notification);
 
             // initialize controls.
@@ -108,6 +119,7 @@ namespace Quickstarts.AlarmConditionClient
         private AuditEventForm m_auditEventForm;
         private bool m_connectedOnce;
         private bool ColumnAutoAdjust;
+        private string ServerURL;
         #endregion
 
         #region Private Methods
@@ -630,43 +642,19 @@ namespace Quickstarts.AlarmConditionClient
                     return;
                 }
 
-                // look for existing entry.
                 ListViewItem item = null;
+                item = new ListViewItem(String.Empty);
 
-                for (int ii = 0; ii < ConditionsLV.Items.Count; ii++)
-                {
-                    ConditionState current = (ConditionState)ConditionsLV.Items[ii].Tag;
+                item.SubItems.Add(String.Empty); // Condition
+                item.SubItems.Add(String.Empty); // Branch
+                item.SubItems.Add(String.Empty); // Type
+                item.SubItems.Add(String.Empty); // Severity
+                item.SubItems.Add(String.Empty); // Time
+                item.SubItems.Add(String.Empty); // State
+                item.SubItems.Add(String.Empty); // Message
+                item.SubItems.Add(String.Empty); // Comment
 
-                    // the combination of a condition and branch id uniquely identify an item in the display. 
-                    if (current.NodeId == condition.NodeId && BaseVariableState.GetValue(current.BranchId) == BaseVariableState.GetValue(condition.BranchId))
-                    {
-                        // match found but watch out for out of order events (async processing can cause this to happen).
-                        if (BaseVariableState.GetValue(current.Time) > BaseVariableState.GetValue(condition.Time))
-                        {
-                            return;
-                        }
-
-                        item = ConditionsLV.Items[ii];
-                        break;
-                    }
-                }
-                
-                // create a new entry.
-                if (item == null)
-                {
-                    item = new ListViewItem(String.Empty);
-
-                    item.SubItems.Add(String.Empty); // Condition
-                    item.SubItems.Add(String.Empty); // Branch
-                    item.SubItems.Add(String.Empty); // Type
-                    item.SubItems.Add(String.Empty); // Severity
-                    item.SubItems.Add(String.Empty); // Time
-                    item.SubItems.Add(String.Empty); // State
-                    item.SubItems.Add(String.Empty); // Message
-                    item.SubItems.Add(String.Empty); // Comment
-
-                    ConditionsLV.Items.Add(item);
-                }
+                ConditionsLV.Items.Add(item);
 
                 // look up the condition type metadata in the local cache.
                 INode type = m_session.NodeCache.Find(condition.TypeDefinitionId);
@@ -788,6 +776,9 @@ namespace Quickstarts.AlarmConditionClient
                         ConditionsLV.Columns[ii].Width = -2;
                     }
                 }
+
+                //TODO: Add this as a menu option
+                ConditionsLV.EnsureVisible(ConditionsLV.Items.Count -1);
             }
             catch (Exception exception)
             {
@@ -1262,8 +1253,8 @@ namespace Quickstarts.AlarmConditionClient
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            var appSettings = System.Configuration.ConfigurationManager.AppSettings;
-            Boolean.TryParse(appSettings["ColumnAutoAdjust"], out this.ColumnAutoAdjust);
+            //var appSettings = System.Configuration.ConfigurationManager.AppSettings;
+            //Boolean.TryParse(appSettings["ColumnAutoAdjust"], out this.ColumnAutoAdjust);
             //int.TryParse(appSettings["MaximumItems"], out this.MaximumItems);
             //if (this.MaximumItems < MIN_ITEMS) { this.MaximumItems = MIN_ITEMS; }
         }
