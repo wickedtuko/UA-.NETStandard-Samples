@@ -62,6 +62,9 @@ namespace Quickstarts.AlarmConditionClient
         public MainForm(ApplicationConfiguration configuration)
         {
             InitializeComponent();
+            var appSettings = System.Configuration.ConfigurationManager.AppSettings;
+            Boolean.TryParse(appSettings["ColumnAutoAdjust"], out this.ColumnAutoAdjust);
+
             this.Icon = ClientUtils.GetAppIcon();
 
             ConnectServerCTRL.Configuration = m_configuration = configuration;
@@ -79,7 +82,7 @@ namespace Quickstarts.AlarmConditionClient
             m_filter.IgnoreSuppressedOrShelved = true;
             m_filter.EventTypes = new NodeId[] { ObjectTypeIds.ConditionType };
 
-            // declate callback.
+            // declare callback.
             m_MonitoredItem_Notification = new MonitoredItemNotificationEventHandler(MonitoredItem_Notification);
 
             // initialize controls.
@@ -108,6 +111,7 @@ namespace Quickstarts.AlarmConditionClient
         private AuditEventForm m_auditEventForm;
         private bool m_connectedOnce;
         private bool ColumnAutoAdjust;
+        private string ServerURL;
         #endregion
 
         #region Private Methods
@@ -1262,8 +1266,8 @@ namespace Quickstarts.AlarmConditionClient
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            var appSettings = System.Configuration.ConfigurationManager.AppSettings;
-            Boolean.TryParse(appSettings["ColumnAutoAdjust"], out this.ColumnAutoAdjust);
+            //var appSettings = System.Configuration.ConfigurationManager.AppSettings;
+            //Boolean.TryParse(appSettings["ColumnAutoAdjust"], out this.ColumnAutoAdjust);
             //int.TryParse(appSettings["MaximumItems"], out this.MaximumItems);
             //if (this.MaximumItems < MIN_ITEMS) { this.MaximumItems = MIN_ITEMS; }
         }
