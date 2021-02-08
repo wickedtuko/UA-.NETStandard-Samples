@@ -286,6 +286,7 @@ namespace Quickstarts.AlarmConditionClient
             EventFilter filter = monitoredItem.Status.Filter as EventFilter;
 
             // initialize the event with the values in the notification.
+            if (session is null) { return null; }
             e.Update(session.SystemContext, filter.SelectClauses, notification);
 
             // save the orginal notification.
