@@ -513,6 +513,7 @@ namespace Opc.Ua.Client.Controls
 
             // stop any reconnect operation.
             InternalDisconnect();
+            ConnectBTN.Enabled = true;
         }
 
         /// <summary>
@@ -544,6 +545,7 @@ namespace Opc.Ua.Client.Controls
                 }
 
                 m_ConnectComplete(this, null);
+                ConnectBTN.Enabled = false;
             }
         }
 
@@ -671,6 +673,7 @@ namespace Opc.Ua.Client.Controls
             try
             {
                 await ConnectAsync();
+                ConnectBTN.Enabled = false;
             }
             catch (ServiceResultException sre)
             {

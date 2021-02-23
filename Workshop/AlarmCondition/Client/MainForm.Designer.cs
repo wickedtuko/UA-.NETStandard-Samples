@@ -139,7 +139,7 @@ namespace Quickstarts.AlarmConditionClient
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -169,6 +169,7 @@ namespace Quickstarts.AlarmConditionClient
             // 
             // Server_DisconnectMI
             // 
+            this.Server_DisconnectMI.Enabled = false;
             this.Server_DisconnectMI.Name = "Server_DisconnectMI";
             this.Server_DisconnectMI.Size = new System.Drawing.Size(180, 22);
             this.Server_DisconnectMI.Text = "Disconnect";
@@ -199,26 +200,26 @@ namespace Quickstarts.AlarmConditionClient
             // Conditions_MonitorMI
             // 
             this.Conditions_MonitorMI.Name = "Conditions_MonitorMI";
-            this.Conditions_MonitorMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_MonitorMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_MonitorMI.Text = "View...";
             this.Conditions_MonitorMI.Click += new System.EventHandler(this.Conditions_MonitorMI_Click);
             // 
             // Conditions_RefreshMI
             // 
             this.Conditions_RefreshMI.Name = "Conditions_RefreshMI";
-            this.Conditions_RefreshMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_RefreshMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_RefreshMI.Text = "Refresh";
             this.Conditions_RefreshMI.Click += new System.EventHandler(this.Conditions_RefreshMI_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(168, 6);
             // 
             // Conditions_SetAreaFilterMI
             // 
             this.Conditions_SetAreaFilterMI.Name = "Conditions_SetAreaFilterMI";
-            this.Conditions_SetAreaFilterMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_SetAreaFilterMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_SetAreaFilterMI.Text = "Set Area Filter...";
             this.Conditions_SetAreaFilterMI.Click += new System.EventHandler(this.Conditions_SetAreaFilterMI_Click);
             // 
@@ -231,7 +232,7 @@ namespace Quickstarts.AlarmConditionClient
             this.Condition_Type_LimitAlarmsMI,
             this.Condition_Type_DiscreteAlarmsMI});
             this.Conditions_SetTypeMI.Name = "Conditions_SetTypeMI";
-            this.Conditions_SetTypeMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_SetTypeMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_SetTypeMI.Text = "Condition Type";
             // 
             // Condition_Type_AllMI
@@ -279,7 +280,7 @@ namespace Quickstarts.AlarmConditionClient
             this.Conditions_Severity_MediumMI,
             this.Conditions_Severity_HighMI});
             this.Conditions_SetSeverityMI.Name = "Conditions_SetSeverityMI";
-            this.Conditions_SetSeverityMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_SetSeverityMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_SetSeverityMI.Text = "Minimum Severity";
             // 
             // Conditions_Severity_AllMI
@@ -315,47 +316,47 @@ namespace Quickstarts.AlarmConditionClient
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(168, 6);
             // 
             // Conditions_EnableMI
             // 
             this.Conditions_EnableMI.Name = "Conditions_EnableMI";
-            this.Conditions_EnableMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_EnableMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_EnableMI.Text = "Enable";
             this.Conditions_EnableMI.Click += new System.EventHandler(this.Conditions_EnableMI_Click);
             // 
             // Conditions_DisableMI
             // 
             this.Conditions_DisableMI.Name = "Conditions_DisableMI";
-            this.Conditions_DisableMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_DisableMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_DisableMI.Text = "Disable";
             this.Conditions_DisableMI.Click += new System.EventHandler(this.Conditions_DisableMI_Click);
             // 
             // Conditions_AddCommentMI
             // 
             this.Conditions_AddCommentMI.Name = "Conditions_AddCommentMI";
-            this.Conditions_AddCommentMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_AddCommentMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_AddCommentMI.Text = "Add Comment...";
             this.Conditions_AddCommentMI.Click += new System.EventHandler(this.Conditions_AddCommentMI_Click);
             // 
             // Conditions_AcknowledgeMI
             // 
             this.Conditions_AcknowledgeMI.Name = "Conditions_AcknowledgeMI";
-            this.Conditions_AcknowledgeMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_AcknowledgeMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_AcknowledgeMI.Text = "Acknowledge...";
             this.Conditions_AcknowledgeMI.Click += new System.EventHandler(this.Conditions_AcknowledgeMI_Click);
             // 
             // Conditions_ConfirmMI
             // 
             this.Conditions_ConfirmMI.Name = "Conditions_ConfirmMI";
-            this.Conditions_ConfirmMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_ConfirmMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_ConfirmMI.Text = "Confirm...";
             this.Conditions_ConfirmMI.Click += new System.EventHandler(this.Conditions_ConfirmMI_Click);
             // 
             // Conditions_RespondMI
             // 
             this.Conditions_RespondMI.Name = "Conditions_RespondMI";
-            this.Conditions_RespondMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_RespondMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_RespondMI.Text = "Respond...";
             this.Conditions_RespondMI.Click += new System.EventHandler(this.Conditions_RespondMI_Click);
             // 
@@ -367,7 +368,7 @@ namespace Quickstarts.AlarmConditionClient
             this.Conditions_OneShotShelveMI,
             this.Conditions_TimedShelveMI});
             this.Conditions_ShelvingMI.Name = "Conditions_ShelvingMI";
-            this.Conditions_ShelvingMI.Size = new System.Drawing.Size(180, 22);
+            this.Conditions_ShelvingMI.Size = new System.Drawing.Size(171, 22);
             this.Conditions_ShelvingMI.Text = "Shelving";
             // 
             // Conditions_UnshelveMI
@@ -409,7 +410,7 @@ namespace Quickstarts.AlarmConditionClient
             // View_AuditEventsMI
             // 
             this.View_AuditEventsMI.Name = "View_AuditEventsMI";
-            this.View_AuditEventsMI.Size = new System.Drawing.Size(180, 22);
+            this.View_AuditEventsMI.Size = new System.Drawing.Size(149, 22);
             this.View_AuditEventsMI.Text = "Audit Events...";
             this.View_AuditEventsMI.Click += new System.EventHandler(this.View_AuditEventsMI_Click);
             // 
@@ -424,7 +425,7 @@ namespace Quickstarts.AlarmConditionClient
             // Help_ContentsMI
             // 
             this.Help_ContentsMI.Name = "Help_ContentsMI";
-            this.Help_ContentsMI.Size = new System.Drawing.Size(180, 22);
+            this.Help_ContentsMI.Size = new System.Drawing.Size(122, 22);
             this.Help_ContentsMI.Text = "Contents";
             this.Help_ContentsMI.Click += new System.EventHandler(this.Help_ContentsMI_Click);
             // 
