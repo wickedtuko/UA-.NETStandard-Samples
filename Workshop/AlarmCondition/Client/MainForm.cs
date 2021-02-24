@@ -664,7 +664,7 @@ namespace Quickstarts.AlarmConditionClient
                 item.SubItems.Add(String.Empty); // Message
                 item.SubItems.Add(String.Empty); // Comment
 
-                ConditionsLV.Items.Add(item);
+                //ConditionsLV.Items.Add(item);
 
                 // look up the condition type metadata in the local cache.
                 INode type = m_session.NodeCache.Find(condition.TypeDefinitionId);
@@ -778,6 +778,9 @@ namespace Quickstarts.AlarmConditionClient
                     }
                 }
 
+                //ConditionsLV.Items.Add(item);
+                ConditionsLV.Items.Insert(0, item);
+
                 // adjust the width of the columns.
                 if (this.ColumnAutoAdjust)
                 {
@@ -788,11 +791,11 @@ namespace Quickstarts.AlarmConditionClient
                 }
 
                 //TODO: Add this as a menu option
-                ConditionsLV.EnsureVisible(ConditionsLV.Items.Count -1);
+                //ConditionsLV.EnsureVisible(ConditionsLV.Items.Count -1);
 
                 while (ConditionsLV.Items.Count > MaximumItems)
                 {
-                    ConditionsLV.Items.RemoveAt(0);
+                    ConditionsLV.Items.RemoveAt(ConditionsLV.Items.Count - 1);
                 }
             }
             catch (Exception exception)

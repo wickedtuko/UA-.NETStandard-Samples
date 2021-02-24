@@ -98,7 +98,8 @@ namespace Quickstarts.AlarmConditionClient
             this.Help_ContentsMI = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.MainPN = new System.Windows.Forms.Panel();
-            this.ConditionsLV = new System.Windows.Forms.ListView();
+            //this.ConditionsLV = new System.Windows.Forms.ListView();
+            this.ConditionsLV = new ListViewX.ListViewFF();
             this.SourceCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ConditionNameCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BranchCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));

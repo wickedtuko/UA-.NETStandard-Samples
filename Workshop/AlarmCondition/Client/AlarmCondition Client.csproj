@@ -97,6 +97,9 @@
     <Compile Include="DialogResponseDlg.Designer.cs">
       <DependentUpon>DialogResponseDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListViewFF.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SetAreaFilterDlg.cs">
       <SubType>Form</SubType>
     </Compile>
