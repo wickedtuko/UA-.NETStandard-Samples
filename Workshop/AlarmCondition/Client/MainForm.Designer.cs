@@ -98,7 +98,6 @@ namespace Quickstarts.AlarmConditionClient
             this.Help_ContentsMI = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.MainPN = new System.Windows.Forms.Panel();
-            //this.ConditionsLV = new System.Windows.Forms.ListView();
             this.ConditionsLV = new ListViewX.ListViewFF();
             this.SourceCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ConditionNameCH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -140,7 +139,7 @@ namespace Quickstarts.AlarmConditionClient
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -157,14 +156,14 @@ namespace Quickstarts.AlarmConditionClient
             // Server_DiscoverMI
             // 
             this.Server_DiscoverMI.Name = "Server_DiscoverMI";
-            this.Server_DiscoverMI.Size = new System.Drawing.Size(180, 22);
+            this.Server_DiscoverMI.Size = new System.Drawing.Size(133, 22);
             this.Server_DiscoverMI.Text = "Discover...";
             this.Server_DiscoverMI.Click += new System.EventHandler(this.Server_DiscoverMI_Click);
             // 
             // Server_ConnectMI
             // 
             this.Server_ConnectMI.Name = "Server_ConnectMI";
-            this.Server_ConnectMI.Size = new System.Drawing.Size(180, 22);
+            this.Server_ConnectMI.Size = new System.Drawing.Size(133, 22);
             this.Server_ConnectMI.Text = "Connect";
             this.Server_ConnectMI.Click += new System.EventHandler(this.Server_ConnectMI_ClickAsync);
             // 
@@ -172,7 +171,7 @@ namespace Quickstarts.AlarmConditionClient
             // 
             this.Server_DisconnectMI.Enabled = false;
             this.Server_DisconnectMI.Name = "Server_DisconnectMI";
-            this.Server_DisconnectMI.Size = new System.Drawing.Size(180, 22);
+            this.Server_DisconnectMI.Size = new System.Drawing.Size(133, 22);
             this.Server_DisconnectMI.Text = "Disconnect";
             this.Server_DisconnectMI.Click += new System.EventHandler(this.Server_DisconnectMI_Click);
             // 
@@ -558,6 +557,7 @@ namespace Quickstarts.AlarmConditionClient
             this.Name = "MainForm";
             this.Text = "UA Alarm Condition Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.MenuBar.ResumeLayout(false);
             this.MenuBar.PerformLayout();
@@ -576,7 +576,6 @@ namespace Quickstarts.AlarmConditionClient
         private System.Windows.Forms.ToolStripMenuItem Server_ConnectMI;
         private System.Windows.Forms.ToolStripMenuItem Server_DisconnectMI;
         private System.Windows.Forms.Panel MainPN;
-        private System.Windows.Forms.ListView ConditionsLV;
         private System.Windows.Forms.ColumnHeader SourceCH;
         private System.Windows.Forms.ColumnHeader ConditionTypeCH;
         private System.Windows.Forms.ColumnHeader SeverityCH;
@@ -622,5 +621,6 @@ namespace Quickstarts.AlarmConditionClient
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private Opc.Ua.Client.Controls.HeaderBranding clientHeaderBranding1;
+        private ListViewX.ListViewFF ConditionsLV;
     }
 }
